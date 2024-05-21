@@ -1,0 +1,3 @@
+/home/crusher/Desktop/c_workspace/cxcgl/.build/CMakeFiles/main.dir
+/home/crusher/Desktop/c_workspace/cxcgl/.build/CMakeFiles/edit_cache.dir
+/home/crusher/Desktop/c_workspace/cxcgl/.build/CMakeFiles/rebuild_cache.dir
