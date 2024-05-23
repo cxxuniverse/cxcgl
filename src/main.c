@@ -26,8 +26,8 @@ int main() {
   Errno err = cxcgl_save_to_file(pixels, WIDTH, HEIGHT, "output.ppm");
 
   if (err) {
-    fprintf(stderr, "[Error]: could not save file %s: %s\n", "output.ppm",
-            strerror(errno));
+    fprintf(stderr, "[Error]: could not save file %s: %d\n", "output.ppm", err);
+    return -1;
   }
 
   printf("Welcome from CXCGL.\nSize of Canvas: %d", CANVAS_SIZE);
