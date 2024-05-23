@@ -117,12 +117,7 @@ void cxcgl_fill_check_pattern(u32* pixels, size_t canvas_width,
 
   for (size_t y = 0; y < rows; ++y) {
     for (size_t x = 0; x < cols; ++x) {
-      u32 color;
-      if ((x + y) % 2 == 0) {
-        color = color0;
-      } else {
-        color = color1;
-      }
+      u32 color = ((x + y) % 2 == 0) ? color0 : color1;
 
       cxcgl_fill_rect(pixels, canvas_width, canvas_height, x * cell_width,
                       y * cell_height, cell_width, cell_width, color);
