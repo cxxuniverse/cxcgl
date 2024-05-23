@@ -21,7 +21,7 @@ int main() {
   // cxcgl_fill_check_pattern(pixels, WIDTH, HEIGHT, ROWS, COLS, 0x000000ff,
   //                          0x00000000);
 
-  cxcgl_fill_check_pattern(pixels, WIDTH, HEIGHT, 8, 8, 0x00AF0000, 0x00000000);
+  cxcgl_fill_check_pattern(pixels, WIDTH, HEIGHT, 8, 8, 0x00AF00FF, 0x00000000);
   cxcgl_save_to_file(pixels, WIDTH, HEIGHT, "output.ppm");
 
   printf("Welcome from CXCGL.\nSize of Canvas: %d", CANVAS_SIZE);

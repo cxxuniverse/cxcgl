@@ -52,17 +52,20 @@ void cxcgl_fill(u32* pixels, size_t width, size_t height, u32 color) {
  */
 void cxcgl_fill_rect(u32* pixels, size_t canvas_width, size_t canvas_height,
                      int x0, int y0, size_t width, size_t height, u32 color) {
-  for (size_t dy = 0; dy < height; ++dy) {
-    int y = dy + y0;
+  if (x0 < 0) x0 = 0;
+  if (y0 < 0) y0 = 0;
 
-    if (y >= 0 && y < canvas_height) {
-      for (size_t dx = 0; dx < width; ++dx) {
-        int x = x0 + dx;
+  int x1 = x0 + width;
+  int y1 = y0 + height;
 
-        if (x >= 0 && x < canvas_width) {
-          pixels[y * canvas_width + x] = color;
-        }
-      }
+  if (x1 > canvas_width) x1 = canvas_width;
+  if (y1 > canvas_height) y1 = canvas_height;
+
+  for (size_t y = y0; y < y1; ++y) {
+    u32* row = pixels + y * canvas_width + x0;
+
+    for (size_t x = x0; x < x1; ++x) {
+      row[x - x0] = color;
     }
   }
 }
