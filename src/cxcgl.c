@@ -149,11 +149,11 @@ Errno cxcgl_save_to_file(u32* pixels, size_t width, size_t height,
 
     for (size_t i = 0; i < width * height; ++i) {
       // 0xAABBGGRR (RGB-A Format)
-      u32 pixel = pixels[i];
+      u32* pixel = pixels + i;
       u8 bytes[3] = {
-          (pixel) & 0xFF,
-          (pixel >> 8) & 0xFF,
-          (pixel >> 8 * 2) & 0xFF,
+          (*pixel) & 0xFF,
+          (*pixel >> 8) & 0xFF,
+          (*pixel >> 8 * 2) & 0xFF,
       };
 
       fwrite(bytes, sizeof(bytes), 1, f);
@@ -164,6 +164,11 @@ Errno cxcgl_save_to_file(u32* pixels, size_t width, size_t height,
 defer:
   if (f) fclose(f);
   return result;
+}
+
+void cxcgl_fill_circle(u32* pixels, size_t canvas_width, size_t canvas_height,
+                       int x0, int y0, size_t width, size_t height, u32 color) {
+
 }
 
 #endif

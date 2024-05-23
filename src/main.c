@@ -21,7 +21,7 @@ int main() {
   // cxcgl_fill_check_pattern(pixels, WIDTH, HEIGHT, ROWS, COLS, 0x000000ff,
   //                          0x00000000);
 
-  cxcgl_fill_check_pattern(pixels, WIDTH, HEIGHT, 8, 8, 0x00AF00FF, 0x00000000);
+  cxcgl_fill_check_pattern(pixels, WIDTH, HEIGHT, 8, 8, 0x00AF00FF, 0x000000FF);
 
   Errno err = cxcgl_save_to_file(pixels, WIDTH, HEIGHT, "output.ppm");
 
