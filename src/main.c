@@ -22,7 +22,13 @@ int main() {
   //                          0x00000000);
 
   cxcgl_fill_check_pattern(pixels, WIDTH, HEIGHT, 8, 8, 0x00AF00FF, 0x00000000);
-  cxcgl_save_to_file(pixels, WIDTH, HEIGHT, "output.ppm");
+
+  Errno err = cxcgl_save_to_file(pixels, WIDTH, HEIGHT, "output.ppm");
+
+  if (err) {
+    fprintf(stderr, "[Error]: could not save file %s: %s\n", "output.ppm",
+            strerror(errno));
+  }
 
   printf("Welcome from CXCGL.\nSize of Canvas: %d", CANVAS_SIZE);
 
