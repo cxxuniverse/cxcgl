@@ -150,8 +150,11 @@ Errno cxcgl_save_to_file(u32* pixels, size_t width, size_t height,
     for (size_t i = 0; i < width * height; ++i) {
       // 0xAABBGGRR (RGB-A Format)
       u32 pixel = pixels[i];
-      u8 bytes[3] = {(pixel) & 0xFF, (pixel >> 8) & 0xFF,
-                     (pixel >> 8 * 2) & 0xFF};
+      u8 bytes[3] = {
+          (pixel) & 0xFF,
+          (pixel >> 8) & 0xFF,
+          (pixel >> 8 * 2) & 0xFF,
+      };
 
       fwrite(bytes, sizeof(bytes), 1, f);
       if (ferror(f)) return_defer(-1);
